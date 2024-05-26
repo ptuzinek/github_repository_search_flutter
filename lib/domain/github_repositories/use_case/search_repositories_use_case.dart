@@ -1,4 +1,4 @@
-import 'package:github_repository_search_flutter/domain/github_repositories/model/github_repository.dart';
+import 'package:github_repository_search_flutter/domain/github_repositories/model/github_repository_data.dart';
 import 'package:github_repository_search_flutter/domain/github_repositories/service/github_service.dart';
 import 'package:injectable/injectable.dart';
 
@@ -8,5 +8,6 @@ class SearchRepositoriesUseCase {
 
   const SearchRepositoriesUseCase(this._githubService);
 
-  Future<List<GithubRepository>> call(String query) async => _githubService.searchRepositories(query);
+  Future<GithubRepositoryData> call(String query, int page, {int perPage = 4}) async =>
+      _githubService.searchRepositories(query, perPage, page);
 }

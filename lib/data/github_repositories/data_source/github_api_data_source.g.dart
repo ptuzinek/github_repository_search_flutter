@@ -19,16 +19,18 @@ class _GithubApiDataSource implements GithubApiDataSource {
   String? baseUrl;
 
   @override
-  Future<GithubRepositoriesResponseDto> getGithubRepositories(
+  Future<HttpResponse<GithubRepositoriesResponseDto>> getGithubRepositories(
     String query,
     String stars,
     int perPage,
+    int page,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'q': query,
       r'sort': stars,
       r'per_page': perPage,
+      r'page': page,
     };
     final _headers = <String, dynamic>{
       r'Accept': 'application/vnd.github+json',
@@ -37,7 +39,7 @@ class _GithubApiDataSource implements GithubApiDataSource {
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GithubRepositoriesResponseDto>(Options(
+        _setStreamType<HttpResponse<GithubRepositoriesResponseDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -54,7 +56,8 @@ class _GithubApiDataSource implements GithubApiDataSource {
               baseUrl,
             ))));
     final value = GithubRepositoriesResponseDto.fromJson(_result.data!);
-    return value;
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

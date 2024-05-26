@@ -20,24 +20,36 @@ mixin _$SearchRepositoriesState {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function(List<GithubRepository> repositories) loaded,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
     required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function(List<GithubRepository> repositories)? loaded,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function(List<GithubRepository> repositories)? loaded,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +59,11 @@ mixin _$SearchRepositoriesState {
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +72,10 @@ mixin _$SearchRepositoriesState {
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +84,10 @@ mixin _$SearchRepositoriesState {
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,8 +156,12 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function(List<GithubRepository> repositories) loaded,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
     required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
   }) {
     return idle();
   }
@@ -142,8 +171,12 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function(List<GithubRepository> repositories)? loaded,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
   }) {
     return idle?.call();
   }
@@ -153,8 +186,12 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function(List<GithubRepository> repositories)? loaded,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -170,6 +207,11 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
   }) {
     return idle(this);
   }
@@ -181,6 +223,10 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
   }) {
     return idle?.call(this);
   }
@@ -192,6 +238,10 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -252,8 +302,12 @@ class _$SearchRepositoriesStateLoadingImpl
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function(List<GithubRepository> repositories) loaded,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
     required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
   }) {
     return loading();
   }
@@ -263,8 +317,12 @@ class _$SearchRepositoriesStateLoadingImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function(List<GithubRepository> repositories)? loaded,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
   }) {
     return loading?.call();
   }
@@ -274,8 +332,12 @@ class _$SearchRepositoriesStateLoadingImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function(List<GithubRepository> repositories)? loaded,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -291,6 +353,11 @@ class _$SearchRepositoriesStateLoadingImpl
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
   }) {
     return loading(this);
   }
@@ -302,6 +369,10 @@ class _$SearchRepositoriesStateLoadingImpl
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
   }) {
     return loading?.call(this);
   }
@@ -313,6 +384,10 @@ class _$SearchRepositoriesStateLoadingImpl
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -335,7 +410,7 @@ abstract class _$$SearchRepositoriesStateLoadedImplCopyWith<$Res> {
           $Res Function(_$SearchRepositoriesStateLoadedImpl) then) =
       __$$SearchRepositoriesStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<GithubRepository> repositories});
+  $Res call({List<GithubRepository> repositories, bool showLoadMoreButton});
 }
 
 /// @nodoc
@@ -352,12 +427,17 @@ class __$$SearchRepositoriesStateLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? repositories = null,
+    Object? showLoadMoreButton = null,
   }) {
     return _then(_$SearchRepositoriesStateLoadedImpl(
       repositories: null == repositories
           ? _value._repositories
           : repositories // ignore: cast_nullable_to_non_nullable
               as List<GithubRepository>,
+      showLoadMoreButton: null == showLoadMoreButton
+          ? _value.showLoadMoreButton
+          : showLoadMoreButton // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -367,7 +447,8 @@ class __$$SearchRepositoriesStateLoadedImplCopyWithImpl<$Res>
 class _$SearchRepositoriesStateLoadedImpl
     implements SearchRepositoriesStateLoaded {
   const _$SearchRepositoriesStateLoadedImpl(
-      {required final List<GithubRepository> repositories})
+      {required final List<GithubRepository> repositories,
+      required this.showLoadMoreButton})
       : _repositories = repositories;
 
   final List<GithubRepository> _repositories;
@@ -379,8 +460,11 @@ class _$SearchRepositoriesStateLoadedImpl
   }
 
   @override
+  final bool showLoadMoreButton;
+
+  @override
   String toString() {
-    return 'SearchRepositoriesState.loaded(repositories: $repositories)';
+    return 'SearchRepositoriesState.loaded(repositories: $repositories, showLoadMoreButton: $showLoadMoreButton)';
   }
 
   @override
@@ -389,12 +473,14 @@ class _$SearchRepositoriesStateLoadedImpl
         (other.runtimeType == runtimeType &&
             other is _$SearchRepositoriesStateLoadedImpl &&
             const DeepCollectionEquality()
-                .equals(other._repositories, _repositories));
+                .equals(other._repositories, _repositories) &&
+            (identical(other.showLoadMoreButton, showLoadMoreButton) ||
+                other.showLoadMoreButton == showLoadMoreButton));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_repositories));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_repositories), showLoadMoreButton);
 
   @JsonKey(ignore: true)
   @override
@@ -409,10 +495,14 @@ class _$SearchRepositoriesStateLoadedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function(List<GithubRepository> repositories) loaded,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
     required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
   }) {
-    return loaded(repositories);
+    return loaded(repositories, showLoadMoreButton);
   }
 
   @override
@@ -420,10 +510,14 @@ class _$SearchRepositoriesStateLoadedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function(List<GithubRepository> repositories)? loaded,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
   }) {
-    return loaded?.call(repositories);
+    return loaded?.call(repositories, showLoadMoreButton);
   }
 
   @override
@@ -431,12 +525,16 @@ class _$SearchRepositoriesStateLoadedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function(List<GithubRepository> repositories)? loaded,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(repositories);
+      return loaded(repositories, showLoadMoreButton);
     }
     return orElse();
   }
@@ -448,6 +546,11 @@ class _$SearchRepositoriesStateLoadedImpl
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
   }) {
     return loaded(this);
   }
@@ -459,6 +562,10 @@ class _$SearchRepositoriesStateLoadedImpl
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
   }) {
     return loaded?.call(this);
   }
@@ -470,6 +577,10 @@ class _$SearchRepositoriesStateLoadedImpl
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -482,10 +593,12 @@ class _$SearchRepositoriesStateLoadedImpl
 abstract class SearchRepositoriesStateLoaded
     implements SearchRepositoriesState, StateBuilder {
   const factory SearchRepositoriesStateLoaded(
-          {required final List<GithubRepository> repositories}) =
+          {required final List<GithubRepository> repositories,
+          required final bool showLoadMoreButton}) =
       _$SearchRepositoriesStateLoadedImpl;
 
   List<GithubRepository> get repositories;
+  bool get showLoadMoreButton;
   @JsonKey(ignore: true)
   _$$SearchRepositoriesStateLoadedImplCopyWith<
           _$SearchRepositoriesStateLoadedImpl>
@@ -564,8 +677,12 @@ class _$SearchRepositoriesStateErrorImpl
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function(List<GithubRepository> repositories) loaded,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
     required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
   }) {
     return error(message);
   }
@@ -575,8 +692,12 @@ class _$SearchRepositoriesStateErrorImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function(List<GithubRepository> repositories)? loaded,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
   }) {
     return error?.call(message);
   }
@@ -586,8 +707,12 @@ class _$SearchRepositoriesStateErrorImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function(List<GithubRepository> repositories)? loaded,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
     TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -603,6 +728,11 @@ class _$SearchRepositoriesStateErrorImpl
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
   }) {
     return error(this);
   }
@@ -614,6 +744,10 @@ class _$SearchRepositoriesStateErrorImpl
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
   }) {
     return error?.call(this);
   }
@@ -625,6 +759,10 @@ class _$SearchRepositoriesStateErrorImpl
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -644,4 +782,299 @@ abstract class SearchRepositoriesStateError
   _$$SearchRepositoriesStateErrorImplCopyWith<
           _$SearchRepositoriesStateErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchRepositoriesStateLoadingNewItemsImplCopyWith<$Res> {
+  factory _$$SearchRepositoriesStateLoadingNewItemsImplCopyWith(
+          _$SearchRepositoriesStateLoadingNewItemsImpl value,
+          $Res Function(_$SearchRepositoriesStateLoadingNewItemsImpl) then) =
+      __$$SearchRepositoriesStateLoadingNewItemsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchRepositoriesStateLoadingNewItemsImplCopyWithImpl<$Res>
+    extends _$SearchRepositoriesStateCopyWithImpl<$Res,
+        _$SearchRepositoriesStateLoadingNewItemsImpl>
+    implements _$$SearchRepositoriesStateLoadingNewItemsImplCopyWith<$Res> {
+  __$$SearchRepositoriesStateLoadingNewItemsImplCopyWithImpl(
+      _$SearchRepositoriesStateLoadingNewItemsImpl _value,
+      $Res Function(_$SearchRepositoriesStateLoadingNewItemsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SearchRepositoriesStateLoadingNewItemsImpl
+    implements SearchRepositoriesStateLoadingNewItems {
+  const _$SearchRepositoriesStateLoadingNewItemsImpl();
+
+  @override
+  String toString() {
+    return 'SearchRepositoriesState.loadingNewItems()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchRepositoriesStateLoadingNewItemsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
+    required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
+  }) {
+    return loadingNewItems();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
+    TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
+  }) {
+    return loadingNewItems?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
+    TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
+    required TResult orElse(),
+  }) {
+    if (loadingNewItems != null) {
+      return loadingNewItems();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateLoading value) loading,
+    required TResult Function(SearchRepositoriesStateLoaded value) loaded,
+    required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
+  }) {
+    return loadingNewItems(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateLoading value)? loading,
+    TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
+    TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
+  }) {
+    return loadingNewItems?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateLoading value)? loading,
+    TResult Function(SearchRepositoriesStateLoaded value)? loaded,
+    TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
+    required TResult orElse(),
+  }) {
+    if (loadingNewItems != null) {
+      return loadingNewItems(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchRepositoriesStateLoadingNewItems
+    implements SearchRepositoriesState, StateListener {
+  const factory SearchRepositoriesStateLoadingNewItems() =
+      _$SearchRepositoriesStateLoadingNewItemsImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWith<
+    $Res> {
+  factory _$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWith(
+          _$SearchRepositoriesStateLoadingNewItemsFinishedImpl value,
+          $Res Function(_$SearchRepositoriesStateLoadingNewItemsFinishedImpl)
+              then) =
+      __$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWithImpl<$Res>
+    extends _$SearchRepositoriesStateCopyWithImpl<$Res,
+        _$SearchRepositoriesStateLoadingNewItemsFinishedImpl>
+    implements
+        _$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWith<$Res> {
+  __$$SearchRepositoriesStateLoadingNewItemsFinishedImplCopyWithImpl(
+      _$SearchRepositoriesStateLoadingNewItemsFinishedImpl _value,
+      $Res Function(_$SearchRepositoriesStateLoadingNewItemsFinishedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
+    implements SearchRepositoriesStateLoadingNewItemsFinished {
+  const _$SearchRepositoriesStateLoadingNewItemsFinishedImpl();
+
+  @override
+  String toString() {
+    return 'SearchRepositoriesState.loadingNewItemsFinished()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchRepositoriesStateLoadingNewItemsFinishedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)
+        loaded,
+    required TResult Function(String? message) error,
+    required TResult Function() loadingNewItems,
+    required TResult Function() loadingNewItemsFinished,
+  }) {
+    return loadingNewItemsFinished();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
+    TResult? Function(String? message)? error,
+    TResult? Function()? loadingNewItems,
+    TResult? Function()? loadingNewItemsFinished,
+  }) {
+    return loadingNewItemsFinished?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function(
+            List<GithubRepository> repositories, bool showLoadMoreButton)?
+        loaded,
+    TResult Function(String? message)? error,
+    TResult Function()? loadingNewItems,
+    TResult Function()? loadingNewItemsFinished,
+    required TResult orElse(),
+  }) {
+    if (loadingNewItemsFinished != null) {
+      return loadingNewItemsFinished();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateLoading value) loading,
+    required TResult Function(SearchRepositoriesStateLoaded value) loaded,
+    required TResult Function(SearchRepositoriesStateError value) error,
+    required TResult Function(SearchRepositoriesStateLoadingNewItems value)
+        loadingNewItems,
+    required TResult Function(
+            SearchRepositoriesStateLoadingNewItemsFinished value)
+        loadingNewItemsFinished,
+  }) {
+    return loadingNewItemsFinished(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateLoading value)? loading,
+    TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
+    TResult? Function(SearchRepositoriesStateError value)? error,
+    TResult? Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
+  }) {
+    return loadingNewItemsFinished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateLoading value)? loading,
+    TResult Function(SearchRepositoriesStateLoaded value)? loaded,
+    TResult Function(SearchRepositoriesStateError value)? error,
+    TResult Function(SearchRepositoriesStateLoadingNewItems value)?
+        loadingNewItems,
+    TResult Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
+        loadingNewItemsFinished,
+    required TResult orElse(),
+  }) {
+    if (loadingNewItemsFinished != null) {
+      return loadingNewItemsFinished(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchRepositoriesStateLoadingNewItemsFinished
+    implements SearchRepositoriesState, StateListener {
+  const factory SearchRepositoriesStateLoadingNewItemsFinished() =
+      _$SearchRepositoriesStateLoadingNewItemsFinishedImpl;
 }

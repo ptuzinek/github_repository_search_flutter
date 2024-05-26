@@ -18,9 +18,10 @@ abstract class GithubApiDataSource {
     'Accept': 'application/vnd.github+json',
     'X-GitHub-Api-Version': '2022-11-28',
   })
-  Future<GithubRepositoriesResponseDto> getGithubRepositories(
+  Future<HttpResponse<GithubRepositoriesResponseDto>> getGithubRepositories(
     @Query(NetworkingParams.query) String query,
     @Query(NetworkingParams.sort) String stars,
     @Query(NetworkingParams.perPage) int perPage,
+    @Query(NetworkingParams.page) int page,
   );
 }

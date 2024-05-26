@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SearchRepositoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -30,7 +30,7 @@ mixin _$SearchRepositoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -42,7 +42,7 @@ mixin _$SearchRepositoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -55,7 +55,7 @@ mixin _$SearchRepositoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -68,7 +68,7 @@ mixin _$SearchRepositoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -80,7 +80,7 @@ mixin _$SearchRepositoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -113,39 +113,40 @@ class _$SearchRepositoriesStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$SearchRepositoriesStateIdleImplCopyWith<$Res> {
-  factory _$$SearchRepositoriesStateIdleImplCopyWith(
-          _$SearchRepositoriesStateIdleImpl value,
-          $Res Function(_$SearchRepositoriesStateIdleImpl) then) =
-      __$$SearchRepositoriesStateIdleImplCopyWithImpl<$Res>;
+abstract class _$$SearchRepositoriesStateInitialImplCopyWith<$Res> {
+  factory _$$SearchRepositoriesStateInitialImplCopyWith(
+          _$SearchRepositoriesStateInitialImpl value,
+          $Res Function(_$SearchRepositoriesStateInitialImpl) then) =
+      __$$SearchRepositoriesStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SearchRepositoriesStateIdleImplCopyWithImpl<$Res>
+class __$$SearchRepositoriesStateInitialImplCopyWithImpl<$Res>
     extends _$SearchRepositoriesStateCopyWithImpl<$Res,
-        _$SearchRepositoriesStateIdleImpl>
-    implements _$$SearchRepositoriesStateIdleImplCopyWith<$Res> {
-  __$$SearchRepositoriesStateIdleImplCopyWithImpl(
-      _$SearchRepositoriesStateIdleImpl _value,
-      $Res Function(_$SearchRepositoriesStateIdleImpl) _then)
+        _$SearchRepositoriesStateInitialImpl>
+    implements _$$SearchRepositoriesStateInitialImplCopyWith<$Res> {
+  __$$SearchRepositoriesStateInitialImplCopyWithImpl(
+      _$SearchRepositoriesStateInitialImpl _value,
+      $Res Function(_$SearchRepositoriesStateInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
-  const _$SearchRepositoriesStateIdleImpl();
+class _$SearchRepositoriesStateInitialImpl
+    implements SearchRepositoriesStateInitial {
+  const _$SearchRepositoriesStateInitialImpl();
 
   @override
   String toString() {
-    return 'SearchRepositoriesState.idle()';
+    return 'SearchRepositoriesState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchRepositoriesStateIdleImpl);
+            other is _$SearchRepositoriesStateInitialImpl);
   }
 
   @override
@@ -154,7 +155,7 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -163,13 +164,13 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     required TResult Function() loadingNewItems,
     required TResult Function() loadingNewItemsFinished,
   }) {
-    return idle();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -178,13 +179,13 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     TResult? Function()? loadingNewItems,
     TResult? Function()? loadingNewItemsFinished,
   }) {
-    return idle?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -194,8 +195,8 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     TResult Function()? loadingNewItemsFinished,
     required TResult orElse(),
   }) {
-    if (idle != null) {
-      return idle();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -203,7 +204,7 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -213,13 +214,13 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
             SearchRepositoriesStateLoadingNewItemsFinished value)
         loadingNewItemsFinished,
   }) {
-    return idle(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -228,13 +229,13 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
     TResult? Function(SearchRepositoriesStateLoadingNewItemsFinished value)?
         loadingNewItemsFinished,
   }) {
-    return idle?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -244,17 +245,17 @@ class _$SearchRepositoriesStateIdleImpl implements SearchRepositoriesStateIdle {
         loadingNewItemsFinished,
     required TResult orElse(),
   }) {
-    if (idle != null) {
-      return idle(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class SearchRepositoriesStateIdle
+abstract class SearchRepositoriesStateInitial
     implements SearchRepositoriesState, StateBuilder {
-  const factory SearchRepositoriesStateIdle() =
-      _$SearchRepositoriesStateIdleImpl;
+  const factory SearchRepositoriesStateInitial() =
+      _$SearchRepositoriesStateInitialImpl;
 }
 
 /// @nodoc
@@ -300,7 +301,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -315,7 +316,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -330,7 +331,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -349,7 +350,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -365,7 +366,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -380,7 +381,7 @@ class _$SearchRepositoriesStateLoadingImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -493,7 +494,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -508,7 +509,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -523,7 +524,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -542,7 +543,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -558,7 +559,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -573,7 +574,7 @@ class _$SearchRepositoriesStateLoadedImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -675,7 +676,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -690,7 +691,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -705,7 +706,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -724,7 +725,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -740,7 +741,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -755,7 +756,7 @@ class _$SearchRepositoriesStateErrorImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -827,7 +828,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -842,7 +843,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -857,7 +858,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -876,7 +877,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -892,7 +893,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -907,7 +908,7 @@ class _$SearchRepositoriesStateLoadingNewItemsImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,
@@ -976,7 +977,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() idle,
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)
@@ -991,7 +992,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? idle,
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -1006,7 +1007,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
             List<GithubRepository> repositories, bool showLoadMoreButton)?
@@ -1025,7 +1026,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchRepositoriesStateIdle value) idle,
+    required TResult Function(SearchRepositoriesStateInitial value) initial,
     required TResult Function(SearchRepositoriesStateLoading value) loading,
     required TResult Function(SearchRepositoriesStateLoaded value) loaded,
     required TResult Function(SearchRepositoriesStateError value) error,
@@ -1041,7 +1042,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchRepositoriesStateIdle value)? idle,
+    TResult? Function(SearchRepositoriesStateInitial value)? initial,
     TResult? Function(SearchRepositoriesStateLoading value)? loading,
     TResult? Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult? Function(SearchRepositoriesStateError value)? error,
@@ -1056,7 +1057,7 @@ class _$SearchRepositoriesStateLoadingNewItemsFinishedImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchRepositoriesStateIdle value)? idle,
+    TResult Function(SearchRepositoriesStateInitial value)? initial,
     TResult Function(SearchRepositoriesStateLoading value)? loading,
     TResult Function(SearchRepositoriesStateLoaded value)? loaded,
     TResult Function(SearchRepositoriesStateError value)? error,

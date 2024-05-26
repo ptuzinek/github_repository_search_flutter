@@ -11,7 +11,7 @@ class SearchRepositoriesCubit extends CoreCubit<SearchRepositoriesState> {
 
   SearchRepositoriesCubit(
     this._searchRepositoriesUseCase,
-  ) : super(const SearchRepositoriesState.idle());
+  ) : super(const SearchRepositoriesState.initial());
 
   List<GithubRepository> _repositories = [];
   int? _totalPages;
@@ -19,10 +19,10 @@ class SearchRepositoriesCubit extends CoreCubit<SearchRepositoriesState> {
   String _query = '';
   bool get _showLoadMoreButton => _totalPages != null && _page < _totalPages!;
 
-  void searchRepositories(String query) async {
+  Future<void> searchRepositories(String query) async {
     emit(const SearchRepositoriesState.loading());
     if (query.isEmpty) {
-      emit(const SearchRepositoriesState.loaded(repositories: [], showLoadMoreButton: true));
+      emit(const SearchRepositoriesState.loaded(repositories: [], showLoadMoreButton: false));
       return;
     }
     try {
@@ -32,17 +32,17 @@ class SearchRepositoriesCubit extends CoreCubit<SearchRepositoriesState> {
       final GithubRepositoryData githubRepositoryData = await _searchRepositoriesUseCase(_query, _page);
 
       _totalPages = githubRepositoryData.totalPages;
-      _page++;
 
       _repositories.addAll(githubRepositoryData.items);
       emit(SearchRepositoriesState.loaded(repositories: _repositories, showLoadMoreButton: _showLoadMoreButton));
+      _page++;
     } catch (_) {
       emit(const SearchRepositoriesState.error());
     }
   }
 
-  void loadMoreRepositories(String query) async {
-    if (_totalPages != null && _page < _totalPages!) {
+  Future<void> loadMoreRepositories() async {
+    if (_totalPages != null && _page <= _totalPages!) {
       try {
         emit(SearchRepositoriesState.loadingNewItems());
 

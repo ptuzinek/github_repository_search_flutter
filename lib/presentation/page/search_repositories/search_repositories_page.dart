@@ -48,7 +48,7 @@ class SearchRepositoriesPage extends HookWidget {
                   itemCount: repositories.isNotEmpty ? repositories.length + 1 : 0,
                   itemBuilder: (context, index) =>
                       index == repositories.length && showLoadMoreButton && repositories.isNotEmpty
-                          ? LoadMoreButton(onPressed: () => cubit.loadMoreRepositories(''))
+                          ? LoadMoreButton(onPressed: () => cubit.loadMoreRepositories())
                           : GithubRepositoryCard(
                               repository: repositories[index],
                               onTap: () => context.pushNamed(

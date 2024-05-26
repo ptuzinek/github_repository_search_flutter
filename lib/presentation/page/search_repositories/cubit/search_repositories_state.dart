@@ -7,7 +7,7 @@ part 'search_repositories_state.freezed.dart';
 @freezed
 class SearchRepositoriesState with _$SearchRepositoriesState {
   @Implements<StateBuilder>()
-  const factory SearchRepositoriesState.idle() = SearchRepositoriesStateIdle;
+  const factory SearchRepositoriesState.initial() = SearchRepositoriesStateInitial;
 
   @Implements<StateBuilder>()
   const factory SearchRepositoriesState.loading() = SearchRepositoriesStateLoading;

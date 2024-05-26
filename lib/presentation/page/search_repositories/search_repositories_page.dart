@@ -43,18 +43,19 @@ class SearchRepositoriesPage extends HookWidget {
             SearchBar(debouncer: debouncer, cubit: cubit),
             SizedBox(height: 20),
             state.maybeWhen(
-              loaded: (repositories) => Flexible(
+              loaded: (repositories, showLoadMoreButton) => Flexible(
                 child: ListView.builder(
-                  itemCount: repositories.length + 1,
-                  itemBuilder: (context, index) => index != repositories.length
-                      ? GithubRepositoryCard(
-                          repository: repositories[index],
-                          onTap: () => context.pushNamed(
-                            AppRoutes.repositoryDetails.name,
-                            extra: repositories[index],
-                          ),
-                        )
-                      : LoadMoreButton(),
+                  itemCount: repositories.isNotEmpty ? repositories.length + 1 : 0,
+                  itemBuilder: (context, index) =>
+                      index == repositories.length && showLoadMoreButton && repositories.isNotEmpty
+                          ? LoadMoreButton(onPressed: () => cubit.loadMoreRepositories(''))
+                          : GithubRepositoryCard(
+                              repository: repositories[index],
+                              onTap: () => context.pushNamed(
+                                AppRoutes.repositoryDetails.name,
+                                extra: repositories[index],
+                              ),
+                            ),
                 ),
               ),
               loading: () => LoadingBody(),
@@ -73,12 +74,19 @@ class SearchRepositoriesPage extends HookWidget {
     BuildContext context,
   ) =>
       state.maybeWhen(
+        loadingNewItems: () => showDialog(
+          context: context,
+          builder: (_) => LoadingBody(),
+        ),
+        loadingNewItemsFinished: () => Navigator.of(context, rootNavigator: true).pop(),
         orElse: doNothing,
       );
 }
 
 class LoadMoreButton extends StatelessWidget {
-  const LoadMoreButton({super.key});
+  final VoidCallback onPressed;
+
+  const LoadMoreButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
@@ -88,7 +96,7 @@ class LoadMoreButton extends StatelessWidget {
           ),
           backgroundColor: Color.fromARGB(255, 229, 238, 241),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           'Load more',
           style: TextStyle(
@@ -145,7 +153,7 @@ class LoadingBody extends StatelessWidget {
                 )
               : CupertinoActivityIndicator(
                   color: Colors.white,
-                  radius: 12,
+                  radius: 16,
                 ),
         ),
       );

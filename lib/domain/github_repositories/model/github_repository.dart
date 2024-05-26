@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:github_repository_search_flutter/domain/github_repositories/model/owner.dart';
 
-class GithubRepository {
+class GithubRepository extends Equatable {
   final String name;
   final String? description;
   final Owner owner;
@@ -10,7 +11,7 @@ class GithubRepository {
   final String repositoryUrl;
   final int watchersCount;
 
-  GithubRepository({
+  const GithubRepository({
     required this.name,
     required this.description,
     required this.owner,
@@ -20,4 +21,16 @@ class GithubRepository {
     required this.repositoryUrl,
     required this.watchersCount,
   });
+
+  @override
+  List<Object?> get props => [
+        name,
+        description,
+        owner,
+        stars,
+        forks,
+        openIssues,
+        repositoryUrl,
+        watchersCount,
+      ];
 }

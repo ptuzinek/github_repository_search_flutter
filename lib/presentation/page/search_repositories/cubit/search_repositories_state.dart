@@ -13,9 +13,17 @@ class SearchRepositoriesState with _$SearchRepositoriesState {
   const factory SearchRepositoriesState.loading() = SearchRepositoriesStateLoading;
 
   @Implements<StateBuilder>()
-  const factory SearchRepositoriesState.loaded({required List<GithubRepository> repositories}) =
-      SearchRepositoriesStateLoaded;
+  const factory SearchRepositoriesState.loaded({
+    required List<GithubRepository> repositories,
+    required bool showLoadMoreButton,
+  }) = SearchRepositoriesStateLoaded;
 
   @Implements<StateBuilder>()
   const factory SearchRepositoriesState.error([String? message]) = SearchRepositoriesStateError;
+
+  @Implements<StateListener>()
+  const factory SearchRepositoriesState.loadingNewItems() = SearchRepositoriesStateLoadingNewItems;
+
+  @Implements<StateListener>()
+  const factory SearchRepositoriesState.loadingNewItemsFinished() = SearchRepositoriesStateLoadingNewItemsFinished;
 }

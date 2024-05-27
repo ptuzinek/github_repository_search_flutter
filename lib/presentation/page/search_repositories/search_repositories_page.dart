@@ -58,7 +58,7 @@ class SearchRepositoriesPage extends HookWidget {
                             ),
                 ),
               ),
-              loading: () => LoadingBody(),
+              loading: () => Expanded(child: LoadingBody()),
               error: (_) => ErrorBody(),
               orElse: () => const SizedBox.shrink(),
             ),
@@ -145,17 +145,15 @@ class LoadingBody extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Expanded(
-        child: Center(
-          child: Platform.isAndroid
-              ? CircularProgressIndicator(
-                  color: Colors.white,
-                )
-              : CupertinoActivityIndicator(
-                  color: Colors.white,
-                  radius: 16,
-                ),
-        ),
+  Widget build(BuildContext context) => Center(
+        child: Platform.isAndroid
+            ? CircularProgressIndicator(
+                color: Colors.white,
+              )
+            : CupertinoActivityIndicator(
+                color: Colors.white,
+                radius: 16,
+              ),
       );
 }
 

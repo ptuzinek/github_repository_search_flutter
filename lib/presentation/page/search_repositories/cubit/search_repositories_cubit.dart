@@ -44,14 +44,14 @@ class SearchRepositoriesCubit extends CoreCubit<SearchRepositoriesState> {
   Future<void> loadMoreRepositories() async {
     if (_totalPages != null && _page <= _totalPages!) {
       try {
-        emit(SearchRepositoriesState.loadingNewItems());
+        emit(const SearchRepositoriesState.loadingNewItems());
 
         final GithubRepositoryData githubRepositoryData = await _searchRepositoriesUseCase(_query, _page);
         final List<GithubRepository> newList = List.from(_repositories);
         newList.addAll(githubRepositoryData.items);
         _repositories = newList;
         emit(SearchRepositoriesState.loaded(repositories: _repositories, showLoadMoreButton: _showLoadMoreButton));
-        emit(SearchRepositoriesState.loadingNewItemsFinished());
+        emit(const SearchRepositoriesState.loadingNewItemsFinished());
         _page++;
       } catch (_) {
         emit(const SearchRepositoriesState.error());

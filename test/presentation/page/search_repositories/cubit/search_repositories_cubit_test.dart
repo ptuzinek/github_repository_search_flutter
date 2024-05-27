@@ -88,17 +88,17 @@ void main() {
         await cubit.loadMoreRepositories();
       },
       expect: () => [
-        SearchRepositoriesState.loading(),
+        const SearchRepositoriesState.loading(),
         SearchRepositoriesState.loaded(
           repositories: [githubRepositoryData1.items.first],
           showLoadMoreButton: true,
         ),
-        SearchRepositoriesState.loadingNewItems(),
+        const SearchRepositoriesState.loadingNewItems(),
         SearchRepositoriesState.loaded(
           repositories: [githubRepositoryData1.items.first, githubRepositoryData2.items.first],
           showLoadMoreButton: false,
         ),
-        SearchRepositoriesState.loadingNewItemsFinished(),
+        const SearchRepositoriesState.loadingNewItemsFinished(),
       ],
     );
 
@@ -108,7 +108,7 @@ void main() {
       act: (cubit) => cubit.searchRepositories(''),
       expect: () => [
         const SearchRepositoriesState.loading(),
-        SearchRepositoriesState.loaded(repositories: [], showLoadMoreButton: false),
+        const SearchRepositoriesState.loaded(repositories: [], showLoadMoreButton: false),
       ],
     );
 
@@ -140,7 +140,7 @@ void main() {
           repositories: [githubRepositoryData1.items.first],
           showLoadMoreButton: true,
         ),
-        SearchRepositoriesState.loadingNewItems(),
+        const SearchRepositoriesState.loadingNewItems(),
         const SearchRepositoriesState.error(),
       ],
     );

@@ -12,13 +12,13 @@ class RepositoryDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Color(0xFF091729),
+        backgroundColor: const Color(0xFF091729),
         appBar: AppBar(
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: Colors.white,
           ),
-          backgroundColor: Color(0xFF091729),
-          title: Text(
+          backgroundColor: const Color(0xFF091729),
+          title: const Text(
             'Repository details',
             style: TextStyle(
               color: Colors.white,
@@ -32,11 +32,11 @@ class RepositoryDetailsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 _OwnerCard(repository: repository),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 GithubLinkButton(repositoryUrl: repository.repositoryUrl),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 GithubRepositoryDetailsCard(repository: repository)
               ],
             ),
@@ -58,15 +58,15 @@ class GithubLinkButton extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          backgroundColor: Color.fromARGB(255, 229, 238, 241),
+          backgroundColor: const Color.fromARGB(255, 229, 238, 241),
         ),
         onPressed: () async {
           await launchUrl(Uri.parse(repositoryUrl));
         },
-        child: Text(
+        child: const Text(
           'View Repository on GitHub',
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -90,12 +90,12 @@ class _OwnerCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Color(0xFF121F31),
+          color: const Color(0xFF121F31),
           border: Border.all(
-            color: Color(0xFF1C2739),
+            color: const Color(0xFF1C2739),
             width: 2,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           children: [
@@ -107,7 +107,7 @@ class _OwnerCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Flexible(
               flex: 3,
               child: Align(
@@ -116,7 +116,7 @@ class _OwnerCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Owner',
                       style: TextStyle(
                         color: Colors.white70,
@@ -126,7 +126,7 @@ class _OwnerCard extends StatelessWidget {
                     ),
                     Text(
                       repository.owner.login,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                         color: Colors.white,
@@ -153,12 +153,12 @@ class GithubRepositoryDetailsCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Color(0xFF121F31),
+          color: const Color(0xFF121F31),
           border: Border.all(
-            color: Color(0xFF1C2739),
+            color: const Color(0xFF1C2739),
             width: 2,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +167,7 @@ class GithubRepositoryDetailsCard extends StatelessWidget {
               title: 'Repository name: ',
               content: repository.name,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -179,22 +179,22 @@ class GithubRepositoryDetailsCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             _TitleWithContent(
               title: 'Stars: ',
               content: repository.stars?.toString() ?? '0',
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             _TitleWithContent(
               title: 'Forks: ',
               content: repository.forks.toString(),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             _TitleWithContent(
               title: 'Watchers: ',
               content: repository.watchersCount.toString(),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             _TitleWithContent(
               title: 'Open issues: ',
               content: repository.openIssues.toString(),
@@ -220,7 +220,7 @@ class _TitleWithContent extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white70,
               fontWeight: FontWeight.w600,
@@ -229,7 +229,7 @@ class _TitleWithContent extends StatelessWidget {
           ),
           Text(
             content,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.w600,

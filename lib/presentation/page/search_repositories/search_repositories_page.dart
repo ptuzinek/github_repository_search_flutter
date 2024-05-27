@@ -24,9 +24,9 @@ class SearchRepositoriesPage extends HookWidget {
     final Debouncer debouncer = useDebouncer(1000);
 
     return Scaffold(
-      backgroundColor: Color(0xFF091729),
+      backgroundColor: const Color(0xFF091729),
       appBar: AppBar(
-        backgroundColor: Color(0xFF091729),
+        backgroundColor: const Color(0xFF091729),
         title: const Text(
           'Github Repository Search',
           style: TextStyle(
@@ -36,12 +36,12 @@ class SearchRepositoriesPage extends HookWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SearchBar(debouncer: debouncer, cubit: cubit),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             state.maybeWhen(
               loaded: (repositories, showLoadMoreButton) => Flexible(
                 child: ListView.builder(
@@ -58,8 +58,8 @@ class SearchRepositoriesPage extends HookWidget {
                             ),
                 ),
               ),
-              loading: () => Expanded(child: LoadingBody()),
-              error: (_) => ErrorBody(),
+              loading: () => const Expanded(child: LoadingBody()),
+              error: (_) => const ErrorBody(),
               orElse: () => const SizedBox.shrink(),
             ),
           ],
@@ -76,7 +76,7 @@ class SearchRepositoriesPage extends HookWidget {
       state.maybeWhen(
         loadingNewItems: () => showDialog(
           context: context,
-          builder: (_) => LoadingBody(),
+          builder: (_) => const LoadingBody(),
         ),
         loadingNewItemsFinished: () => Navigator.of(context, rootNavigator: true).pop(),
         orElse: doNothing,
@@ -91,13 +91,13 @@ class LoadMoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ElevatedButton(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          backgroundColor: Color.fromARGB(255, 229, 238, 241),
+          backgroundColor: const Color.fromARGB(255, 229, 238, 241),
         ),
         onPressed: onPressed,
-        child: Text(
+        child: const Text(
           'Load more',
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -114,12 +114,12 @@ class ErrorBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return const Expanded(
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Column(
-            children: const [
+            children: [
               Text('🧐', style: TextStyle(fontSize: 32)),
               SizedBox(height: 4),
               Text(
@@ -147,10 +147,10 @@ class LoadingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
         child: Platform.isAndroid
-            ? CircularProgressIndicator(
+            ? const CircularProgressIndicator(
                 color: Colors.white,
               )
-            : CupertinoActivityIndicator(
+            : const CupertinoActivityIndicator(
                 color: Colors.white,
                 radius: 16,
               ),
@@ -169,11 +169,11 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => TextField(
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Search Repositories',
           floatingLabelBehavior: FloatingLabelBehavior.never,
           suffixIcon: Icon(Icons.search),
-          border: const OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             borderSide: BorderSide.none,
           ),
@@ -203,14 +203,14 @@ class GithubRepositoryCard extends StatelessWidget {
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(vertical: 6),
         child: Material(
-          color: Color.fromARGB(255, 229, 238, 241),
+          color: const Color.fromARGB(255, 229, 238, 241),
           borderRadius: githubRepositoryCardBorderRadius,
           child: InkWell(
             splashColor: Colors.blueGrey[200],
             borderRadius: githubRepositoryCardBorderRadius,
             onTap: onTap,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: githubRepositoryCardBorderRadius,
               ),
               child: Padding(
@@ -230,33 +230,34 @@ class GithubRepositoryCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 12),
-                          Text(repository.owner.login, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 12),
+                          Text(repository.owner.login,
+                              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Flexible(
                       flex: 3,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(repository.name, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                          SizedBox(height: 8),
+                          Text(repository.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
                           Text(
                             repository.description ?? '',
                             maxLines: 6,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Colors.grey[700]),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text('Stars: ${repository.stars}'),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Text('Forks: ${repository.forks}'),
                             ],
                           ),
